@@ -1,0 +1,105 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Principal.master.cs" Inherits="MasterPage_Principal" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script type="text/javascript" src="mascara.js"></script>
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Encontro Unificado</title>
+    <link href="Estilo.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body style="border:0 ; padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px ; width: 100%; height: 100% ; font-size: 10pt; font-family: Verdana ; background-image: url('imagens/background_off.gif')">
+
+    <form id="form1" runat="server">
+       
+        <asp:ScriptManager ID="ScriptManager2" runat="server" />
+        
+        <asp:UpdateProgress ID="UpdateProgress1" runat="server">
+            <ProgressTemplate>
+                <asp:Panel ID="Panel1" runat="server" BackColor="#FFFFAE" BorderColor="Teal" BorderWidth="1px" Height="1px" Width="240px" BorderStyle="Solid">
+                    <img src="imagens/Carregando.gif" alt="carregando" />
+                        <font face="Verdana" size="2">Processando sua solicitação...</font>
+                    <img src="Imagens/fechar.gif" id="abortButton" />
+                    </button>
+                </asp:Panel>
+
+            </ProgressTemplate>
+         </asp:UpdateProgress>
+        
+        <asp:UpdatePanel ID="atualiza" runat="server">
+        <ContentTemplate> 
+            <div style="text-align: center">
+                <table border="0" cellpadding="0" cellspacing="0" style="font-weight: bold; font-size: 8pt;
+                    color: white; font-family: verdana; background-color: white; width: 770px;  height:240px ">
+                    <tr>
+                        <td style="width: 781px; height: 13px; text-align: center">
+                            <asp:Image ID="Image1" runat="server" ImageUrl="~/imagens/topo1.jpg" /></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 781px; height: 63px; background-image: url(imagens/topo2.jpg);">
+                            <table border="0" cellpadding="0" cellspacing="0" style="width: 766px; height: 1px">
+                                <tr>
+                                    <td style="width: 20%; text-align: left">
+                                        <asp:Menu ID="Menu1" runat="server" BackColor="White" DataSourceID="SiteMapDataSource1"
+                                            DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="10px" ForeColor="Maroon"
+                                            Orientation="Horizontal" StaticSubMenuIndent="10px">
+                                            <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                                            <DynamicHoverStyle BackColor="#7C6F57" ForeColor="White" />
+                                            <DynamicMenuStyle BackColor="#F7F6F3" />
+                                            <StaticSelectedStyle BackColor="#5D7B9D" />
+                                            <DynamicSelectedStyle BackColor="#5D7B9D" />
+                                            <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                                            <Items>
+                                                <asp:MenuItem Text="Cadastro" Value="Cadastro">
+                                                    <asp:MenuItem Text="Categoriza&#231;&#227;o" Value="Categoriza&#231;&#227;o"></asp:MenuItem>
+                                                    <asp:MenuItem Text="Recursos" Value="Recursos"></asp:MenuItem>
+                                                    <asp:MenuItem Text="Evento" Value="Evento">
+                                                        <asp:MenuItem Text="Tipo" Value="Tipo"></asp:MenuItem>
+                                                        <asp:MenuItem Text="Evento" Value="Evento"></asp:MenuItem>
+                                                    </asp:MenuItem>
+                                                    <asp:MenuItem Text="N&#250;cleo" Value="N&#250;cleo"></asp:MenuItem>
+                                                </asp:MenuItem>
+                                            </Items>
+                                            <StaticHoverStyle BackColor="#7C6F57" ForeColor="White" />
+                                        </asp:Menu>
+                                        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+                                    </td>
+                                    <td style="width: 80%; text-align: center;">
+                                        <asp:SiteMapDataSource ID="SiteMapDataSource2" runat="server" />
+                                        &nbsp;<asp:Label ID="lblTitulo" runat="server" ForeColor="Red" Text="Label" Width="459px" Font-Bold="True" Height="10px" Font-Names="Verdana" Font-Size="12pt"></asp:Label></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 781px; height: 100%" valign="top" align="left">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                            <br />
+                           </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 781px; height: 13px; text-align: center">
+                            <table style="width: 100%">
+                                <tr>
+                                    <td style="width: 100%" colspan="3">
+                            <asp:ImageButton ID="btnNovo" runat="server" ImageUrl="~/imagens/btn_inc.gif" OnClick="btnNovo_Click" Visible="False" />&nbsp;
+                            <asp:ImageButton ID="btnConfirmar" runat="server" ImageUrl="~/imagens/btn_conf.gif" OnClick="btnConfirmar_Click" Visible="False" />&nbsp;
+                            <asp:ImageButton ID="btnCancelar" runat="server" ImageUrl="~/imagens/btn_canc.gif" OnClick="btnCancelar_Click" Visible="False" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 781px; height: 13px">
+                            <asp:Image ID="Image2" runat="server" ImageUrl="imagens/barra.jpg" /></td>
+                    </tr>
+                </table>
+            </div>
+        </ContentTemplate>
+        </asp:UpdatePanel>
+    </form>
+</body>
+</html>

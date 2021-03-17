@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="Default.aspx" title="Home">
+    <siteMapNode url="" title="Cadastros"  >
+      <siteMapNode url="TipoEventoLista.aspx" title="Tipo de Eventos"  />
+      <siteMapNode url="NucleoLista.aspx" title="Núcleos" />
+      <siteMapNode url="HorarioLista.aspx" title="Horários"  />
+      <siteMapNode url="CaracterizacaoLista.aspx" title="Caracterização"  />
+      <siteMapNode url="RecursoLista.aspx" title="Recursos"  />
+      <siteMapNode url="SalaLista.aspx" title="Salas"  />
+      <siteMapNode url="ProfessorLista.aspx" title="Professores"  />
+      <siteMapNode url="EventoLista.aspx" title="Eventos" />
+      <siteMapNode url="PresencaAlunos.aspx" title="Presença de Alunos" />
+      <!--<siteMapNode url="VoluntarioLista.aspx" title="Voluntários" />-->
+    </siteMapNode>
+  
+    <siteMapNode url="" title="Relatórios"  >
+      <siteMapNode url="RelInscricoesPorEvento.aspx" title="Inscrições por Evento"  />
+      <siteMapNode url="RelAlunosPorEventos.aspx" title="Alunos por Eventos"  />
+    </siteMapNode>
+
+  </siteMapNode>
+
+</siteMap>
+
