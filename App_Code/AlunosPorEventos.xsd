@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AlunosPorEventos" targetNamespace="http://tempuri.org/AlunosPorEventos.xsd" xmlns:mstns="http://tempuri.org/AlunosPorEventos.xsd" xmlns="http://tempuri.org/AlunosPorEventos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="EncontroUnifConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="EncontroUnifConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.EncontroUnifConnectionString.ConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AlunosPorEventosTableAdapter" GeneratorDataComponentClassName="AlunosPorEventosTableAdapter" Name="AlunosPorEventos" UserDataComponentName="AlunosPorEventosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EncontroUnifConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText> SELECT EVENTOS.COD_EVENTO, EVENTOS.TITULO,CALENDARIO.DATA,TIPO_EVENTO.DESCRICAO AS TIPO_EVENTO_DESC, 
+   HORARIO.HORA_INICIAL+' às '+HORARIO.HORA_FINAL AS DESC_HORARIO, 
+   'SALA :'+SALA.DESCRICAO+' - BLOCO:'+SALA.BLOCO+' - '+SALA.ANDAR+'º ANDAR' AS DESC_SALA, 
+   AGENDA.MATRICULA, DB_GRADUACAO.DBO.ALUNO.NM_ALUNO 
+ FROM AGENDA, EVENTOS, CALENDARIO, HORARIO, SALA, TIPO_EVENTO, DB_GRADUACAO.DBO.ALUNO 
+ WHERE EVENTOS.COD_TIPO_EVENTO = TIPO_EVENTO.COD_TIPO_EVENTO and 
+   AGENDA.COD_EVENTO = EVENTOS.COD_EVENTO and 
+   CALENDARIO.COD_EVENTO = AGENDA.COD_EVENTO and 
+   CALENDARIO.COD_HORARIO = AGENDA.COD_HORARIO and 
+   CALENDARIO.DATA = AGENDA.DATA and 
+   CALENDARIO.COD_SALA = SALA.COD_SALA and 
+   AGENDA.COD_HORARIO = HORARIO.COD_HORARIO and 
+   AGENDA.COD_ENSINO = 1 and 
+   AGENDA.MATRICULA = DB_GRADUACAO.DBO.ALUNO.RA 
+UNION  
+SELECT  EVENTOS.COD_EVENTO, EVENTOS.TITULO,CALENDARIO.DATA,TIPO_EVENTO.DESCRICAO AS TIPO_EVENTO_DESC, 
+   HORARIO.HORA_INICIAL+' às '+HORARIO.HORA_FINAL AS DESC_HORARIO,    
+   'SALA :'+SALA.DESCRICAO+' - BLOCO:'+SALA.BLOCO+' - '+SALA.ANDAR+'º ANDAR' AS DESC_SALA, 
+   AGENDA.MATRICULA, DB_CURSO_TECNO.DBO.ALUNO.NM_ALUNO 
+FROM AGENDA, EVENTOS, CALENDARIO, HORARIO, SALA, TIPO_EVENTO, DB_CURSO_TECNO.DBO.ALUNO 
+WHERE EVENTOS.COD_TIPO_EVENTO = TIPO_EVENTO.COD_TIPO_EVENTO and 
+   AGENDA.COD_EVENTO = EVENTOS.COD_EVENTO and 
+   CALENDARIO.COD_EVENTO = AGENDA.COD_EVENTO and 
+   CALENDARIO.COD_HORARIO = AGENDA.COD_HORARIO and 
+   CALENDARIO.DATA = AGENDA.DATA and 
+   CALENDARIO.COD_SALA = SALA.COD_SALA and 
+   AGENDA.COD_HORARIO = HORARIO.COD_HORARIO and 
+   AGENDA.COD_ENSINO = 2 and 
+   AGENDA.MATRICULA = DB_CURSO_TECNO.DBO.ALUNO.RA
+</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="COD_EVENTO" DataSetColumn="COD_EVENTO" />
+              <Mapping SourceColumn="TITULO" DataSetColumn="TITULO" />
+              <Mapping SourceColumn="DATA" DataSetColumn="DATA" />
+              <Mapping SourceColumn="TIPO_EVENTO_DESC" DataSetColumn="TIPO_EVENTO_DESC" />
+              <Mapping SourceColumn="DESC_HORARIO" DataSetColumn="DESC_HORARIO" />
+              <Mapping SourceColumn="DESC_SALA" DataSetColumn="DESC_SALA" />
+              <Mapping SourceColumn="MATRICULA" DataSetColumn="MATRICULA" />
+              <Mapping SourceColumn="NM_ALUNO" DataSetColumn="NM_ALUNO" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AlunosPorEventos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="AlunosPorEventos" msprop:Generator_DataSetName="AlunosPorEventos">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="AlunosPorEventos" msprop:Generator_UserTableName="AlunosPorEventos" msprop:Generator_RowDeletedName="AlunosPorEventosRowDeleted" msprop:Generator_TableClassName="AlunosPorEventosDataTable" msprop:Generator_RowChangedName="AlunosPorEventosRowChanged" msprop:Generator_RowClassName="AlunosPorEventosRow" msprop:Generator_RowChangingName="AlunosPorEventosRowChanging" msprop:Generator_RowEvArgName="AlunosPorEventosRowChangeEvent" msprop:Generator_RowEvHandlerName="AlunosPorEventosRowChangeEventHandler" msprop:Generator_TablePropName="_AlunosPorEventos" msprop:Generator_TableVarName="tableAlunosPorEventos" msprop:Generator_RowDeletingName="AlunosPorEventosRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="COD_EVENTO" msdata:ReadOnly="true" msprop:Generator_UserColumnName="COD_EVENTO" msprop:Generator_ColumnPropNameInRow="COD_EVENTO" msprop:Generator_ColumnVarNameInTable="columnCOD_EVENTO" msprop:Generator_ColumnPropNameInTable="COD_EVENTOColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="TITULO" msdata:ReadOnly="true" msprop:Generator_UserColumnName="TITULO" msprop:Generator_ColumnPropNameInRow="TITULO" msprop:Generator_ColumnVarNameInTable="columnTITULO" msprop:Generator_ColumnPropNameInTable="TITULOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DATA" msdata:ReadOnly="true" msprop:Generator_UserColumnName="DATA" msprop:Generator_ColumnPropNameInRow="DATA" msprop:Generator_ColumnVarNameInTable="columnDATA" msprop:Generator_ColumnPropNameInTable="DATAColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TIPO_EVENTO_DESC" msdata:ReadOnly="true" msprop:Generator_UserColumnName="TIPO_EVENTO_DESC" msprop:Generator_ColumnPropNameInRow="TIPO_EVENTO_DESC" msprop:Generator_ColumnVarNameInTable="columnTIPO_EVENTO_DESC" msprop:Generator_ColumnPropNameInTable="TIPO_EVENTO_DESCColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DESC_HORARIO" msdata:ReadOnly="true" msprop:Generator_UserColumnName="DESC_HORARIO" msprop:Generator_ColumnPropNameInRow="DESC_HORARIO" msprop:Generator_ColumnVarNameInTable="columnDESC_HORARIO" msprop:Generator_ColumnPropNameInTable="DESC_HORARIOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DESC_SALA" msdata:ReadOnly="true" msprop:Generator_UserColumnName="DESC_SALA" msprop:Generator_ColumnPropNameInRow="DESC_SALA" msprop:Generator_ColumnVarNameInTable="columnDESC_SALA" msprop:Generator_ColumnPropNameInTable="DESC_SALAColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="85" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MATRICULA" msdata:ReadOnly="true" msprop:Generator_UserColumnName="MATRICULA" msprop:Generator_ColumnPropNameInRow="MATRICULA" msprop:Generator_ColumnVarNameInTable="columnMATRICULA" msprop:Generator_ColumnPropNameInTable="MATRICULAColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="NM_ALUNO" msdata:ReadOnly="true" msprop:Generator_UserColumnName="NM_ALUNO" msprop:Generator_ColumnPropNameInRow="NM_ALUNO" msprop:Generator_ColumnVarNameInTable="columnNM_ALUNO" msprop:Generator_ColumnPropNameInTable="NM_ALUNOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
