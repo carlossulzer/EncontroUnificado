@@ -1,0 +1,14 @@
+﻿body 
+{
+}
+
+.TextBox
+{
+	text-transform:uppercase;
+}
+
+
+.TextBoxLower
+{
+	text-transform:lowercase;
+}
